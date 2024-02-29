@@ -1,5 +1,3 @@
-using System;
-
 namespace EdcHost.Games;
 
 /// <summary>
@@ -17,9 +15,10 @@ public interface IMine
     /// </summary>
     enum OreKindType
     {
-        IronIngot,
-        GoldIngot,
-        Diamond,
+        IronIngot = 0,
+        GoldIngot = 1,
+        Diamond = 2,
+        None = 3
     }
     /// <summary>
     /// The id of the mine

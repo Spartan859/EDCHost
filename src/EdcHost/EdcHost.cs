@@ -206,6 +206,12 @@ partial class EdcHost : IEdcHost
                     heightOfChunks.Add(chunk.Height);
                 }
 
+                List<int> owningOreKindOfChunks = new();
+                foreach (Games.IChunk chunk in _game.GameMap.Chunks)
+                {
+                    owningOreKindOfChunks.Add((int)chunk.OwningOreKind);
+                }
+
                 for (int i = 0; i < 2; i++)
                 {
                     string? portName = _playerHardwareInfo.GetValueOrDefault(_game.Players[i].PlayerId)?.PortName;
@@ -244,7 +250,8 @@ partial class EdcHost : IEdcHost
                             maxHealth: _game.Players[i].MaxHealth,
                             strength: _game.Players[i].Strength,
                             emeraldCount: _game.Players[i].EmeraldCount,
-                            woolCount: _game.Players[i].WoolCount
+                            woolCount: _game.Players[i].WoolCount,
+                            owningOreKindOfChunks: owningOreKindOfChunks
                         );
                     }
                     catch (Exception e)

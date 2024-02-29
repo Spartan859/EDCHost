@@ -53,8 +53,8 @@ The item IDs are defined as belows:
 | (root)                       | object         | -                                                          | -     | -                | **additional properties are NOT allowed** |
 | gameStage                    | integer        | The game stage 0: READY 1: RUNNING 2: BATTLING 3: FINISHED | -     | format (`int8`)  | -                                         |
 | elapsedTicks                 | integer        | The elapsed ticks.                                         | -     | format (`int32`) | -                                         |
-| heightOfChunks               | array<integer> | -                                                          | -     | 64 items         | -                                         |
-| heightOfChunks (single item) | integer        | The height of chunks.                                      | -     | format (`int8`)  | -                                         |
+| informationOfChunks               | array<integer> | -                                                          | -     | 64 items         | -                                         |
+| informationOfChunks (single item) | integer        | The height of chunks.                                      | -     | format (`int8`)  | -                                         |
 | hasBed                       | boolean        | Whether the player has bed.                                | -     | -                | -                                         |
 | hasBedOpponent               | boolean        | Whether the opponent has bed.                              | -     | -                | -                                         |
 | positionX                    | number         | The x coordinate.                                          | -     | format (`float`) | -                                         |
@@ -66,4 +66,19 @@ The item IDs are defined as belows:
 | maxHealth                    | integer        | The max health point.                                      | -     | format (`int8`)  | -                                         |
 | strength                     | integer        | The strength point.                                        | -     | format (`int8`)  | -                                         |
 | emeraldCount                 | integer        | The emerald count.                                         | -     | format (`int8`)  | -                                         |
-| woolCount                    | integer        | The wool count.                                            | -     | format (`int8`)  | -                                         |
+| woolCount                    | integer        | The wool count.                                            | -     | format (`int8`)  | - |
+
+InfomationOfChunk is defind as below:
+
+```c
+informationOfChunk = heightOfChunk + (oreKindOfChunk << 4)
+```
+
+The ore kinds are defined as belows:
+
+| ID | OreKind |
+|---|---|
+| 0 | IronIngot |
+| 1 | GoldIngot |
+| 2 | Diamond |
+| 3 | None |

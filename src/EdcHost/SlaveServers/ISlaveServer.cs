@@ -44,8 +44,23 @@ public interface ISlaveServer : IDisposable
 
     PortInfo? GetPortInfo(string portName);
 
-    void Publish(string portName, int gameStage, int elapsedTime, List<int> heightOfChunks,
-        bool hasBed, bool hasBedOpponent, double positionX, double positionY, double positionOpponentX,
-        double positionOpponentY, int agility, int health, int maxHealth, int strength,
-        int emeraldCount, int woolCount);
+    void Publish(
+        string portName,
+        int gameStage,
+        int elapsedTime,
+        List<int> heightOfChunks,
+        bool hasBed,
+        bool hasBedOpponent,
+        double positionX,
+        double positionY,
+        double positionOpponentX,
+        double positionOpponentY,
+        int agility,
+        int health,
+        int maxHealth,
+        int strength,
+        int emeraldCount,
+        int woolCount,
+        List<int> owningOreKindOfChunks
+    );
 }

@@ -18,6 +18,7 @@ partial class Game : IGame
                 var position = new Position<int>(minePos.Item1, minePos.Item2);
                 var mine = new Mine(IMine.OreKindType.Diamond, position, 0);
                 Mines.Add(mine);
+                GameMap.GetChunkAt(position).OwningOreKind = IMine.OreKindType.Diamond;
             }
         }
         if (goldMines is not null)
@@ -27,6 +28,7 @@ partial class Game : IGame
                 var position = new Position<int>(minePos.Item1, minePos.Item2);
                 var mine = new Mine(IMine.OreKindType.GoldIngot, position, 0);
                 Mines.Add(mine);
+                GameMap.GetChunkAt(position).OwningOreKind = IMine.OreKindType.GoldIngot;
             }
         }
         if (ironMines is not null)
@@ -36,6 +38,7 @@ partial class Game : IGame
                 var position = new Position<int>(minePos.Item1, minePos.Item2);
                 var mine = new Mine(IMine.OreKindType.IronIngot, position, 0);
                 Mines.Add(mine);
+                GameMap.GetChunkAt(position).OwningOreKind = IMine.OreKindType.IronIngot;
             }
         }
     }

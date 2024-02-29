@@ -42,7 +42,7 @@ public partial class SlaveServersTests
         // Act
         slaveServer.Publish(
             PortName, 0, 0, Enumerable.Repeat<int>(0, ChunkCount).ToList(), false, false,
-            0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0
+            0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, Enumerable.Repeat<int>(0, ChunkCount).ToList()
             );
 
         Assert.Single(serialPortHubMock.SerialPorts);

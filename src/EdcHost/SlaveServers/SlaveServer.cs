@@ -99,10 +99,25 @@ public class SlaveServer : ISlaveServer
         return new ISlaveServer.PortInfo { BaudRate = serialPort.BaudRate };
     }
 
-    public void Publish(string portName, int gameStage, int elapsedTime, List<int> heightOfChunks,
-        bool hasBed, bool hasBedOpponent, double positionX, double positionY, double positionOpponentX,
-        double positionOpponentY, int agility, int health, int maxHealth, int strength,
-        int emeraldCount, int woolCount)
+    public void Publish(
+        string portName,
+        int gameStage,
+        int elapsedTime,
+        List<int> heightOfChunks,
+        bool hasBed,
+        bool hasBedOpponent,
+        double positionX,
+        double positionY,
+        double positionOpponentX,
+        double positionOpponentY,
+        int agility,
+        int health,
+        int maxHealth,
+        int strength,
+        int emeraldCount,
+        int woolCount,
+        List<int> owningOreKindOfChunks
+    )
     {
         if (_isRunning is false)
         {
@@ -114,7 +129,7 @@ public class SlaveServer : ISlaveServer
 
         IPacket packet = new PacketFromHost(gameStage, elapsedTime, heightOfChunks,
             hasBed, hasBedOpponent, (float)positionX, (float)positionY, (float)positionOpponentX, (float)positionOpponentY, agility, health, maxHealth, strength,
-            emeraldCount, woolCount);
+            emeraldCount, woolCount, owningOreKindOfChunks);
         byte[] bytes = packet.ToBytes();
         serialPort.Send(bytes);
     }

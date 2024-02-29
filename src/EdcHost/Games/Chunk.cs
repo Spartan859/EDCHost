@@ -10,6 +10,8 @@ class Chunk : IChunk
     public bool IsVoid => (Height == 0);
     public IPosition<int> Position { get; }
 
+    public IMine.OreKindType OwningOreKind { get; set; } = IMine.OreKindType.None;
+
     /// <summary>
     /// Creates a new chunk.
     /// </summary>

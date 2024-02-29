@@ -26,7 +26,13 @@ public partial class SlaveServersTests
 
         int gameStage = 1;
         int elapsedTime = 100;
-        List<int> heightOfChunks = Enumerable.Range(0, 64).ToList();
+        List<int> heightOfChunks = Enumerable.Repeat(0, 64).ToList();
+        for (int i = 0; i < heightOfChunks.Count; i++)
+        {
+            heightOfChunks[i] = i % 8;
+        }
+        heightOfChunks[0] = 8;
+
         bool hasBed = true;
         bool hasBedOpponent = true;
         double positionX = 1.0;
@@ -39,6 +45,12 @@ public partial class SlaveServersTests
         int strength = 4;
         int emeraldCount = 5;
         int woolCount = 6;
+        List<int> owningOreKindOfChunks = Enumerable.Repeat(0, 64).ToList();
+        for (int i = 0; i < owningOreKindOfChunks.Count; i++)
+        {
+            owningOreKindOfChunks[i] = i % 4;
+        }
+        owningOreKindOfChunks[0] = 3;
 
         PacketFromHost packet = new(
             gameStage, elapsedTime,
@@ -47,7 +59,9 @@ public partial class SlaveServersTests
             (float)positionX, (float)positionY,
             (float)positionOpponentX, (float)positionOpponentY,
             agility, health, maxHealth, strength,
-            emeraldCount, woolCount);
+            emeraldCount, woolCount,
+            owningOreKindOfChunks
+        );
 
         byte[] bytes = packet.ToBytes();
 
@@ -58,7 +72,9 @@ public partial class SlaveServersTests
             hasBed, hasBedOpponent,
             positionX, positionY, positionOpponentX, positionOpponentY,
             agility, health, maxHealth, strength,
-            emeraldCount, woolCount);
+            emeraldCount, woolCount,
+            owningOreKindOfChunks
+        );
 
         byte[] bytesToSend = serialPort.WriteBuffer.ToArray();
 

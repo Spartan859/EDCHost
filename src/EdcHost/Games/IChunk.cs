@@ -27,6 +27,10 @@ public interface IChunk
     /// The position of the chunk.
     /// </summary>
     IPosition<int> Position { get; }
+    /// <summary>
+    /// Which kind of ore the chunk owns.
+    /// </summary>
+    IMine.OreKindType OwningOreKind { get; set; }
 
     /// <summary>
     /// Places a block in the chunk.
