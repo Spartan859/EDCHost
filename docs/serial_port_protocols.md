@@ -54,7 +54,7 @@ The item IDs are defined as belows:
 | gameStage                    | integer        | The game stage 0: READY 1: RUNNING 2: BATTLING 3: FINISHED | -     | format (`int8`)  | -                                         |
 | elapsedTicks                 | integer        | The elapsed ticks.                                         | -     | format (`int32`) | -                                         |
 | informationOfChunks               | array<integer> | -                                                          | -     | 64 items         | -                                         |
-| informationOfChunks (single item) | integer        | The height of chunks.                                      | -     | format (`int8`)  | -                                         |
+| informationOfChunks (single item) | integer        | The information of chunks.                                      | -     | format (`int8`)  | -                                         |
 | hasBed                       | boolean        | Whether the player has bed.                                | -     | -                | -                                         |
 | hasBedOpponent               | boolean        | Whether the opponent has bed.                              | -     | -                | -                                         |
 | positionX                    | number         | The x coordinate.                                          | -     | format (`float`) | -                                         |
@@ -68,7 +68,7 @@ The item IDs are defined as belows:
 | emeraldCount                 | integer        | The emerald count.                                         | -     | format (`int8`)  | -                                         |
 | woolCount                    | integer        | The wool count.                                            | -     | format (`int8`)  | - |
 
-InfomationOfChunk is defind as below:
+InfomationOfChunk is defined as below:
 
 ```c
 informationOfChunk = heightOfChunk + (oreKindOfChunk << 4)
